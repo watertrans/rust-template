@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  rust:
+    build:
+      context: .
+      dockerfile: docker/rust/Dockerfile
+    tty: true
+    working_dir: /workspace
+    volumes:
+      - .:/workspace
+      - rust-target:/workspace/target
+    dns:
+      - 8.8.8.8
+
+volumes:
+  rust-target:
